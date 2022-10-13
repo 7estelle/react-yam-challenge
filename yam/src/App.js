@@ -10,7 +10,7 @@ function Navigation() {
             <NavLink to="/">Home</NavLink>
           </li>
           <li>
-            <NavLink to="/about">About</NavLink>
+            <NavLink to="/statistiques">Statistiques</NavLink>
           </li>
         </ul>
       </nav>
@@ -25,7 +25,7 @@ function App() {
       <Navigation />
       <Routes>
         <Route index path="/" element={<Home />} />
-        <Route path="/about" element={<p>About</p>} />
+        <Route path="/statistiques" element={<p>Statistiques</p>} />
         <Route path="*" element={<p>No match</p>} />
       </Routes>
     </>

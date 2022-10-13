@@ -1,20 +1,38 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { set_count, set_message } from './store/actions/actions-types';
+import { roll_dices } from './store/actions/actions-types';
+import { useState, useEffect } from 'react';
 
 function Home() {
-  // lecture du store de la source de vérité read-only
-  const { messages, count } = useSelector(state => state.message);
+
+  const [iteration, setIteration] = useState(0);
+  const [results, setResults] = useState([]);
+
+  const handleDispatch = () => {
+    setResults([])
+    console.log(results);
+    for(let i = 0; i < parseInt(iteration); i++) {
+      setResults(
+        results.push([
+          Math.floor(Math.random()* 6 + 1),
+          Math.floor(Math.random()* 6 + 1),
+          Math.floor(Math.random()* 6 + 1),
+          Math.floor(Math.random()* 6 + 1),
+          Math.floor(Math.random()* 6 + 1),
+        ])
+      )
+    }
+    console.log(results);
+  }
 
   // actions dispatch dans le reducer => newState 
   const dispatch = useDispatch();
 
   return (
     <div className="App">
-      <button onClick={() => dispatch(set_count())} > COUNT + 1 </button>
-      {messages.map((message, i) => <p key={i}>{message}</p>)}
-      <p>{count}</p>
-      <button onClick={() => dispatch(set_message(Math.random().toString()))} > ADD ALEA MESSAGE </button>
-
+      <p>Nombre d'expériences :</p>
+      
+      <input type="number" onChange={(e) => setIteration(e.target.value)} />
+      <button onClick={() => iteration > 0 && handleDispatch()} > COUNT + 1 </button>
     </div>
   );
 }

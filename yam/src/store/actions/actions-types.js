@@ -1,20 +1,14 @@
-import { ADD_MESSAGE , SET_COUNT, SET_MESSAGE } from '../constants/actions';
+import { SET_ITERATION, ROLL_DICES } from '../constants/actions';
 
 // on prépare de petites fonctions anonymes pour le dispatcher
-export const addMessage = payload => {
-    return {
-        type: ADD_MESSAGE, payload: payload
-    }
-};
 
-export const set_message = payload => {
+export const set_iteration = () => {
     return {
-        type: SET_MESSAGE, payload
+        type: SET_ITERATION
     }
 };
-
-export const set_count = () => {
+export const roll_dices = () => {
     return {
-        type: SET_COUNT
+        type: ROLL_DICES
     }
-};
+}

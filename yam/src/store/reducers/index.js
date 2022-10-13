@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 // reducers 
-import reducerMessage from './message';
+import reducerGame from './game';
 
 export default combineReducers({
-    m : reducerMessage
+    m : reducerGame
 });
