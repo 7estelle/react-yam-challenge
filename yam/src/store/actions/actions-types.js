@@ -1,4 +1,4 @@
-import { SUITE, BRELAN  } from '../constants/actions';
+import { SUITE, BRELAN, RESET_POINTS  } from '../constants/actions';
 
 // on prépare de petites fonctions anonymes pour le dispatcher
 export const suite = () => {
@@ -9,5 +9,10 @@ export const suite = () => {
 export const brelan = () => {
     return {
         type: BRELAN
+    }
+}
+export const reset_points = () => {
+    return {
+        type: RESET_POINTS
     }
 }

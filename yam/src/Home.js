@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { suite, brelan } from './store/actions/actions-types';
+import { reset_points, suite, brelan } from './store/actions/actions-types';
 import { useState, useEffect } from 'react';
 
 function Home() {
@@ -9,6 +9,8 @@ function Home() {
 
   const suiteValues = ['12345', '23456']
   const brelanValues = ['111', '222', '333', '444', '555', '666']
+
+  const { total, nbSuite, nbBrelan } = useSelector(state => state.game.gameResults);
 
   const sortType = (result) => {
     if(suiteValues.filter(value => result.includes(value)).length > 0) {
@@ -37,8 +39,7 @@ function Home() {
       sortType(newArr.sort(function(a, b){return a-b}).join(''))
     }
     setResults(results => newResults);
-    console.log(newResults, 'after push');
-    
+    console.log(newResults, 'after push'); 
   }
 
   // actions dispatch dans le reducer => newState 
@@ -49,7 +50,13 @@ function Home() {
       <p>Nombre d'expériences :</p>
       
       <input type="number" onChange={(e) => setIteration(e.target.value)} />
-      <button onClick={() => iteration > 0 && handleDispatch()} > COUNT + 1 </button>
+      <button onClick={() => iteration > 0 && (
+        dispatch(reset_points()),
+        handleDispatch()
+      )}> COUNT + 1 </button>
+      <p>Nombre de suite : {nbSuite}</p>
+      <p>Nombre de brelan : {nbBrelan}</p>
+      <p>Nombre de pts : {total}</p>
     </div>
   );
 }
