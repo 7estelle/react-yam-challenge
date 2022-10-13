@@ -8,20 +8,20 @@ function Home() {
   const [results, setResults] = useState([]);
 
   const handleDispatch = () => {
-    setResults([])
-    console.log(results);
+    let newResults = []
+    setResults(results => newResults);
+    console.log(newResults, 'after clean');
     for(let i = 0; i < parseInt(iteration); i++) {
-      setResults(
-        results.push([
+        newResults.push([
           Math.floor(Math.random()* 6 + 1),
           Math.floor(Math.random()* 6 + 1),
           Math.floor(Math.random()* 6 + 1),
           Math.floor(Math.random()* 6 + 1),
           Math.floor(Math.random()* 6 + 1),
         ])
-      )
     }
-    console.log(results);
+    setResults(results => newResults);
+    console.log(newResults, 'after push');
   }
 
   // actions dispatch dans le reducer => newState 
