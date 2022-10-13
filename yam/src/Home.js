@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { roll_dices } from './store/actions/actions-types';
+import { suite, brelan } from './store/actions/actions-types';
 import { useState, useEffect } from 'react';
 
 function Home() {
@@ -7,21 +7,38 @@ function Home() {
   const [iteration, setIteration] = useState(0);
   const [results, setResults] = useState([]);
 
+  const suiteValues = ['12345', '23456']
+  const brelanValues = ['111', '222', '333', '444', '555', '666']
+
+  const sortType = (result) => {
+    if(suiteValues.filter(value => result.includes(value)).length > 0) {
+      console.log(suiteValues.filter(value => result.includes(value)));
+
+      return dispatch(suite())
+    }
+    if(brelanValues.filter(value => result.includes(value)).length > 0) {
+      console.log(brelanValues.filter(value => result.includes(value)));
+
+      return dispatch(brelan())
+    }
+  }
   const handleDispatch = () => {
     let newResults = []
     setResults(results => newResults);
     console.log(newResults, 'after clean');
     for(let i = 0; i < parseInt(iteration); i++) {
-        newResults.push([
-          Math.floor(Math.random()* 6 + 1),
-          Math.floor(Math.random()* 6 + 1),
-          Math.floor(Math.random()* 6 + 1),
-          Math.floor(Math.random()* 6 + 1),
-          Math.floor(Math.random()* 6 + 1),
-        ])
+      const newArr = [
+        Math.floor(Math.random()* 6 + 1),
+        Math.floor(Math.random()* 6 + 1),
+        Math.floor(Math.random()* 6 + 1),
+        Math.floor(Math.random()* 6 + 1),
+        Math.floor(Math.random()* 6 + 1)
+      ]
+      sortType(newArr.sort(function(a, b){return a-b}).join(''))
     }
     setResults(results => newResults);
     console.log(newResults, 'after push');
+    
   }
 
   // actions dispatch dans le reducer => newState 

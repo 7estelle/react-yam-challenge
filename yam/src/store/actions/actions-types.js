@@ -1,14 +1,13 @@
-import { SET_ITERATION, ROLL_DICES } from '../constants/actions';
+import { SUITE, BRELAN  } from '../constants/actions';
 
 // on prépare de petites fonctions anonymes pour le dispatcher
-
-export const set_iteration = () => {
+export const suite = () => {
     return {
-        type: SET_ITERATION
+        type: SUITE
     }
-};
-export const roll_dices = () => {
+}
+export const brelan = () => {
     return {
-        type: ROLL_DICES
+        type: BRELAN
     }
 }
