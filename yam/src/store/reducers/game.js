@@ -4,18 +4,19 @@ import { SUITE, BRELAN, RESET_POINTS } from '../constants/actions';
 const initialState = {
     iteration: 0,
     dice: [0,0,0,0,0],
-    gameResults: {
+    gameResults: { // résultats de la partie en cours
         total: 0,
         nbSuite: 0,
         nbBrelan: 0,
     },
-    totalResults: {
+    totalResults: { // résultats totaux
         total: 0,
         nbSuite: 0,
         nbBrelan: 0,
     }
 }
 
+// points gagnés par type de résultat
 const brelanPoints = 5
 const suitePoints = 2
 
@@ -53,7 +54,7 @@ const reducer = (state = initialState, action = {}) => {
         case RESET_POINTS:
             return {
                 ...state,
-                gameResults: {
+                gameResults: { // on reset les résultats de la partie en cours uniquement
                     ...state.gameResults,
                     nbSuite: 0,
                     nbBrelan: 0,

@@ -10,20 +10,16 @@ function Home() {
   const suiteValues = ['12345', '23456']
   const brelanValues = ['111', '222', '333', '444', '555', '666']
 
+  const dispatch = useDispatch();
   const { total, nbSuite, nbBrelan } = useSelector(state => state.game.gameResults);
 
+  // fonction pour trier les résultats, ne renvoyer que les résultats gagnants et les dispatch avec la bonne méthode dans le store
   const sortType = (result) => {
-    if(suiteValues.filter(value => result.includes(value)).length > 0) {
-      console.log(suiteValues.filter(value => result.includes(value)));
-
-      return dispatch(suite())
-    }
-    if(brelanValues.filter(value => result.includes(value)).length > 0) {
-      console.log(brelanValues.filter(value => result.includes(value)));
-
-      return dispatch(brelan())
-    }
+    suiteValues.filter(value => result.includes(value)).length > 0 && ( dispatch(suite()) )
+    brelanValues.filter(value => result.includes(value)).length > 0 && ( dispatch(brelan()) )
   }
+
+  //fonction qui générère les résultats aléatoires
   const handleDispatch = () => {
     let newResults = []
     setResults(results => newResults);
@@ -41,9 +37,6 @@ function Home() {
     setResults(results => newResults);
     console.log(newResults, 'after push'); 
   }
-
-  // actions dispatch dans le reducer => newState 
-  const dispatch = useDispatch();
 
   return (
     <div className="App">

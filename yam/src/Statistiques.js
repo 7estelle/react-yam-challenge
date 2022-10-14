@@ -10,9 +10,9 @@ function Statistiques() {
         <>
             <h1>Vos statistiques :</h1>
             <br/>
-            <p>Nombre de suite : {nbSuite}</p>
-            <p>Nombre de brelan : {nbBrelan}</p>
-            <p>Nombre de pts : {total}</p>
+            <p>Nombre total de suite : {nbSuite}</p>
+            <p>Nombre total de brelan : {nbBrelan}</p>
+            <p>Nombre total de pts : {total}</p>
         </>
     )
 }
