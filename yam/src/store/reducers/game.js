@@ -31,7 +31,7 @@ const reducer = (state = initialState, action = {}) => {
                     total: state.gameResults.total + brelanPoints,
                 },
                 totalResults: {
-                    ...state.totalresults,
+                    ...state.totalResults,
                     nbBrelan: state.totalResults.nbBrelan + 1,
                     total: state.totalResults.total + brelanPoints,
                 }

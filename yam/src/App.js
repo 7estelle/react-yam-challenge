@@ -1,5 +1,6 @@
 import { Routes, Route, NavLink } from "react-router-dom";
 import Home from "./Home";
+import Statistiques from "./Statistiques";
 
 function Navigation() {
   return (
@@ -25,8 +26,7 @@ function App() {
       <Navigation />
       <Routes>
         <Route index path="/" element={<Home />} />
-        <Route path="/statistiques" element={<p>Statistiques</p>} />
-        <Route path="*" element={<p>No match</p>} />
+        <Route path="/statistiques" element={<Statistiques />} />
       </Routes>
     </>
   );
