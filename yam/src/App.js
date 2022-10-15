@@ -1,32 +1,37 @@
 import { Routes, Route, NavLink } from "react-router-dom";
-import Home from "./Home";
-import Statistiques from "./Statistiques";
-
-function Navigation() {
-  return (
-    <div>
-      <nav>
-        <ul>
-          <li>
-            <NavLink to="/">Home</NavLink>
-          </li>
-          <li>
-            <NavLink to="/statistiques">Statistiques</NavLink>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  );
-}
+import Home from "./pages/home/Home";
+import Statistics from "./pages/statistics/Statistics";
+import Navigation from "./pages/navigation/Navigation";
+import { createGlobalStyle } from "styled-components";
 
 function App() {
 
+  const GlobalStyle = createGlobalStyle`	
+    * {
+      box-sizing: border-box;
+    }
+    html {
+      background-color: #0D0C1B ;
+    }
+    body {
+      width: 100%;
+      /* margin: 2rem; */
+      background-color: #0D0C1B;
+      color: #EFFFFA;
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+  `
+
   return (
     <>
+      <GlobalStyle />
       <Navigation />
       <Routes>
         <Route index path="/" element={<Home />} />
-        <Route path="/statistiques" element={<Statistiques />} />
+        <Route path="/statistics" element={<Statistics />} />
       </Routes>
     </>
   );

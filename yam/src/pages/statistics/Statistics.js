@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { reset_points, suite, brelan } from './store/actions/actions-types';
+import { reset_points, suite, brelan } from '../../store/actions/actions-types';
 import { useState, useEffect } from 'react';
 
 function Statistiques() {

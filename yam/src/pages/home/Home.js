@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { reset_points, suite, brelan } from './store/actions/actions-types';
+import { reset_points, suite, brelan } from '../../store/actions/actions-types';
 import { useState, useEffect } from 'react';
+import { HomeContainer } from './Home.styles';
 
 function Home() {
 
@@ -39,7 +40,7 @@ function Home() {
   }
 
   return (
-    <div className="App">
+    <HomeContainer>
       <p>Nombre d'expériences :</p>
       
       <input type="number" onChange={(e) => setIteration(e.target.value)} />
@@ -50,7 +51,7 @@ function Home() {
       <p>Nombre de suite : {nbSuite}</p>
       <p>Nombre de brelan : {nbBrelan}</p>
       <p>Nombre de pts : {total}</p>
-    </div>
+    </HomeContainer>
   );
 }
 
