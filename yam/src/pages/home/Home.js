@@ -43,14 +43,12 @@ function Home() {
     <HomeContainer>
       <p>Nombre d'expériences :</p>
       
-      <input type="number" onChange={(e) => setIteration(e.target.value)} />
+      <input type="text" onChange={(e) => setIteration(e.target.value)} />
+      <p>Suite : {nbSuite} - Brelan : {nbBrelan} - Points : {total}</p>
       <button onClick={() => iteration > 0 && (
         dispatch(reset_points()),
         handleDispatch()
-      )}> COUNT + 1 </button>
-      <p>Nombre de suite : {nbSuite}</p>
-      <p>Nombre de brelan : {nbBrelan}</p>
-      <p>Nombre de pts : {total}</p>
+      )}>Jouer</button>
     </HomeContainer>
   );
 }

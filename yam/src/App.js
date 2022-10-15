@@ -3,10 +3,11 @@ import Home from "./pages/home/Home";
 import Statistics from "./pages/statistics/Statistics";
 import Navigation from "./pages/navigation/Navigation";
 import { createGlobalStyle } from "styled-components";
+import Credits from "./pages/credits/Credits";
 
 function App() {
 
-  const GlobalStyle = createGlobalStyle`	
+  const GlobalStyle = createGlobalStyle`
     * {
       box-sizing: border-box;
     }
@@ -22,6 +23,11 @@ function App() {
       max-width: 1000px;
       margin: 0 auto;
       padding: 1.5rem;
+      font-family: 'Verdana', sans-serif;
+
+      div{
+        position: relative;
+      }
     }
   `
 
@@ -33,6 +39,7 @@ function App() {
         <Route index path="/" element={<Home />} />
         <Route path="/statistics" element={<Statistics />} />
       </Routes>
+      <Credits />
     </>
   );
 }

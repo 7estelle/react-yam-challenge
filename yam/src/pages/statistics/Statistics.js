@@ -8,11 +8,11 @@ function Statistiques() {
 
     return (
         <>
-            <h1>Vos statistiques :</h1>
+            <h1>Vos statistiques totales :</h1>
             <br/>
-            <p>Nombre total de suite : {nbSuite}</p>
-            <p>Nombre total de brelan : {nbBrelan}</p>
-            <p>Nombre total de pts : {total}</p>
+            <p>Nombre de suites : {nbSuite}</p>
+            <p>Nombre de brelans : {nbBrelan}</p>
+            <p>Nombre de Bitcoins gagnés : {total}</p>
         </>
     )
 }

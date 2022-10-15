@@ -17,8 +17,8 @@ const initialState = {
 }
 
 // points gagnés par type de résultat
-const brelanPoints = 5
-const suitePoints = 2
+const brelanPoints = 2
+const suitePoints = 5
 
 const reducer = (state = initialState, action = {}) => {
     switch (action.type) {

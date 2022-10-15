@@ -18,8 +18,9 @@ function Navigation() {
             <NavLink to="/statistics">Statistiques</NavLink>
           </NavElement>
         </ul>
+        <h1>Yam</h1>
         <ul>
-            <li>Votre total : {total}</li>
+            <li>{total}<img src="bitcoin.png"/></li>
         </ul>
       </NavigationContainer>
   );
